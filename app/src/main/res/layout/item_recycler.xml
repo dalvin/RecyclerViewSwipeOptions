@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+  <data>
+
+    <variable
+        name="viewModel"
+        type="com.dalvinlabs.recyclerviewswipeoptions.ViewModel"
+        />
+  </data>
+
+  <android.support.v7.widget.CardView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp"
+      app:cardCornerRadius="5dp"
+      app:cardElevation="5dp"
+      >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+      <LinearLayout
+          android:id="@+id/background"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:background="#ff00"
+          android:orientation="vertical"
+          android:padding="16dp"
+          app:layout_constraintRight_toRightOf="parent"
+          >
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{view -> viewModel.onClickDelete()}"
+            android:text="Del"
+            />
+
+        <Button
+            android:id="@+id/undo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{view -> viewModel.onClickUndo()}"
+            android:text="Undo"
+            />
+
+      </LinearLayout>
+
+
+      <LinearLayout
+          android:id="@+id/foreground"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          android:background="#ffffff"
+          android:padding="16dp"
+          >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.name}"
+            tools:text="test 1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.size}"
+            tools:text="test 2"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.color}"
+            tools:text="test 3"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.price}"
+            tools:text="test 4"
+            />
+
+      </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+  </android.support.v7.widget.CardView>
+</layout>
